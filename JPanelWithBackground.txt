@@ -1,0 +1,48 @@
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+
+/* <<Providing a helping class by extending with JPanel functionally with BackGround 
+	Image Serices  >>                        */ 
+
+
+public class JPanelWithBackground extends JPanel {
+	private static final long serialVersionUID=1L;
+	
+	private Image img;	//	 Creating a object reference of type 'Image'
+	
+	
+	public JPanelWithBackground(String img)
+	{
+		this(new ImageIcon(img).getImage());
+	}
+	
+	
+	
+	public JPanelWithBackground(Image img)
+	{
+		this.img=img;
+		 
+		//  << Creating an object reference to class 'Dimension'
+		
+		//Setting Default width and Height Dimensions...
+		
+		
+		Dimension size=new Dimension(img.getWidth(null),img.getHeight(null));
+		
+		setPreferredSize(size);
+		setMinimumSize(size);
+		setMaximumSize(size);
+		setSize(size);		//set the final size
+		setLayout(null);	//add it to the Layout
+	}
+	
+	public void paintComponent(Graphics g)
+	{
+		g.drawImage(img,0,0,null);//img, WIDTH,HEIGHT, FRAMEBITS
+	}
+	
+}

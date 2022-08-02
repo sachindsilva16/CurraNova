@@ -1,0 +1,656 @@
+//                <<<Main class of execution of JAVA GUI>>>
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.Font;
+import java.util.Hashtable;
+import java.awt.LayoutManager;
+
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
+
+
+
+/*
+ *	Here we use 'CurrencyConverter' class to give the converted corresponding 
+ * currencies and apply this result value to MainGUI class
+ */
+public class GUI {
+	
+	//    <<Initial declaration of currency selection>>
+	
+	
+	private static String selectedCurrency="None";
+	
+	public static void main(String args[])
+	{
+		displayWindow();
+	}
+	
+	//			<<    Defining what actual action has to be performed by 'displayWindow()'   >>
+	
+	private static void displayWindow()
+	{
+		
+//	    <<  Creating Top window and setting the Title >>
+		JFrame frame=new JFrame("<< YOUR ONE-STOP APP FOR CURRENCY CONVERTER >>");
+		frame.setLayout(new FlowLayout(FlowLayout.CENTER));
+		
+		//  <<set the Default size of frame>>
+		
+		frame.setResizable(false);
+		
+		
+		//   <<Creating a Background window to this panel
+		
+		JPanelWithBackground panel=new JPanelWithBackground(new ImageIcon("D:\\CurrencyBackgroundimg.jpg").getImage());
+		
+		//			<<setting the Layout>>
+		panel.setLayout(new FlowLayout());
+		//add it to the Content Panel
+		frame.setContentPane(panel);
+		
+		
+		createUI(frame);
+		
+		
+		//		<<<   Setting the default close operations >>>
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		
+	}
+	
+	
+	/*	Creating Labels,RadioButtons with title Bottom panel with label for amount
+	 * listen for any actions by calling 'actionListeners' method
+	 */
+	
+	
+	//   << Defining createUI() method for the frame creations>>
+	
+	private static void createUI(final JFrame frame) {
+		JPanel top_panel=new JPanel();
+		
+		LayoutManager top_layout=new FlowLayout();
+		top_panel.setLayout(top_layout);
+		top_panel.setOpaque(false);
+		
+		
+		
+		
+		/*    <<  Setting up the Main Top Title as a message to the user
+		to perform the required operations  >> */
+		
+		JLabel title_label=new JLabel("||  SELECT THE COUNTRY CURRENCY YOU WANT TO CONVERT  ||",JLabel.CENTER);
+		
+		//  <<Setting the alignments  >>
+		
+		title_label.setHorizontalAlignment(JLabel.CENTER);
+		title_label.setVerticalAlignment(JLabel.CENTER);
+
+		//  <<Set a Font and Border  >>
+		
+		title_label.setFont(new Font("SF Pro Display",Font.BOLD,13));
+		title_label.setBorder(new EmptyBorder(60,0,0,0)); //what are these dimensions??
+		
+		title_label.setForeground(Color.yellow);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//   <<   Creating RadioButtons to select any one required currency conversion  >>
+		
+		JRadioButton dollar_button=new JRadioButton("Dollars");
+		JRadioButton pound_button=new JRadioButton("PoundS");
+		JRadioButton euro_button=new JRadioButton("Euros");
+		JRadioButton rupee_button=new JRadioButton("Indian Rupee");
+		JRadioButton dirham_button=new JRadioButton("Dirham");
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		//   << Initial setting up all RadioButtons UnSelected
+		
+			
+		
+		//  << for Dollar Button  >>
+		
+		dollar_button.setFocusable(false);
+		dollar_button.setOpaque(false);
+		
+		// << font  >>
+		
+		dollar_button.setFont(new Font("SF Pro Display",Font.ITALIC,16));
+		dollar_button.setForeground(Color.white);
+		
+		
+		//   << For Pounds  >>
+		
+		pound_button.setFocusable(false);	
+		pound_button.setOpaque(false);
+		pound_button.setFont(new Font("SF Pro Display",Font.ITALIC,16));
+		pound_button.setForeground(Color.white);
+		
+		
+		//   << For Euros   >>
+		
+		
+		euro_button.setFocusable(false);
+		euro_button.setOpaque(false);
+		euro_button.setFont(new Font("SF Pro Display",Font.ITALIC,16));
+		euro_button.setForeground(Color.white);
+		
+		
+		//   << For Rupee >>
+		
+		rupee_button.setFocusable(false);
+		rupee_button.setOpaque(false);
+		rupee_button.setFont(new Font("SF Pro Display",Font.ITALIC,16));
+		rupee_button.setForeground(Color.white);
+		
+		
+		
+		//  << For Dhiram  >>
+		
+		dirham_button.setFocusable(false);
+		dirham_button.setOpaque(false);
+		dirham_button.setFont(new Font("SF Pro Display",Font.ITALIC,16));
+		dirham_button.setForeground(Color.white);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//  << Creating a Label to display the amount >>
+		
+		
+		JLabel amount_label=new JLabel("AMOUNT :",JLabel.CENTER);
+		JButton convert_button=new JButton("Convert Currency");
+		
+		
+		//  << Setting up the Fonts for the Label and Buttons >>
+		
+		
+//		amount_label.setBorder(new EmptyBorder(0,0,90,0));
+		
+		
+		
+		convert_button.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		convert_button.setForeground(Color.white);
+		convert_button.setBackground(Color.decode("#808080"));
+		
+		
+		
+		// <<  For Label  'amount' >>
+		
+		
+		amount_label.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		amount_label.setForeground(Color.yellow);
+		
+		
+		
+		// << Creating a field area to enter the amount of conversions
+		
+		
+		JTextField amount_field=new JTextField(5);
+		amount_field.setFont(new Font("SF Pro Display",Font.BOLD,18));
+//		amount_field.setBorder(new EmptyBorder(20,0,0,0));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//  << Providing a Bottom Panel layouts.. >>
+		
+		
+		JPanel bottom_panel=new JPanel();
+		LayoutManager bottom_layout=new FlowLayout();
+		bottom_panel.setLayout(bottom_layout);
+		bottom_panel.setBorder(new EmptyBorder(50,100,0,100));
+		bottom_panel.setOpaque(true);
+		bottom_panel.setBackground(new Color(0,0,0,0));
+		
+		
+		// << Adding Label,RadioButtons to the main Frame >>
+		
+		
+		frame.add(title_label);
+		top_panel.add(dollar_button);
+		top_panel.add(pound_button);
+		top_panel.add(rupee_button);
+		top_panel.add(euro_button);
+		top_panel.add(dirham_button);
+		
+		
+		// << set this to the Content Panel >>
+		
+		
+		frame.getContentPane().add(top_panel,BorderLayout.CENTER);
+		
+		
+		
+		// << Adding amount Label,Amount Field and the convert Button at the Bottom Panel
+		
+		
+		bottom_panel.add(amount_label);
+		bottom_panel.add(amount_field);
+		bottom_panel.add(convert_button);
+		
+		
+		//  << set this to the Content Panel >>
+		
+		frame.getContentPane().add(bottom_panel,BorderLayout.CENTER);
+		
+		
+		
+		/* << Providing the Panel where the chosed currency w.r.t amount
+		 *  provided under amount field is displayed in all 4 currency system formats
+		 */
+		
+		
+		
+		JPanel converted_result_panel=new JPanel();
+		LayoutManager converted_result_panel_layout=new GridLayout(0,2);
+		
+		//<<Set it to mainLayout
+		converted_result_panel.setLayout(converted_result_panel_layout);
+		converted_result_panel.setBorder(new EmptyBorder(25,0,0,0));
+		converted_result_panel.setOpaque(false);
+		
+		
+		
+		//  << Creating Labels for each 5 currency systems  >>
+		
+		JLabel dollar=new JLabel("DOLLAR ($)          : ",JLabel.LEFT);
+		JLabel dollar_result=new JLabel("0",JLabel.CENTER);
+			
+		
+		
+		
+		JLabel pound=new JLabel("POUNDS (\u00a3)         : ",JLabel.CENTER);
+		JLabel pound_result=new JLabel("0",JLabel.CENTER);
+		
+		
+		
+		
+		JLabel rupee=new JLabel("RUPEE (\u20B9)            : ",JLabel.CENTER);
+		JLabel rupee_result=new JLabel("0",JLabel.CENTER);
+		
+		
+		
+		JLabel euro=new JLabel("EURO (\u20AC)              : ",JLabel.CENTER);
+		JLabel euro_result=new JLabel("0",JLabel.CENTER);
+		
+		
+		
+		
+		JLabel dirham=new JLabel("DIRHAM (\uFDFC)        : ",JLabel.CENTER);
+		JLabel dirham_result=new JLabel("0",JLabel.CENTER);
+		
+		
+		//		<<<   Setting fonts for each 		>>>
+		
+		
+		
+		dollar.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		dollar_result.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		
+		
+		pound.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		pound_result.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		
+		
+		rupee.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		rupee_result.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		
+		
+		
+		
+		euro.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		euro_result.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		
+		
+		
+		dirham.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		dirham_result.setFont(new Font("SF Pro Display",Font.BOLD,18));
+		
+		
+		
+		// *******<< setting Foreground for all currencies labels and their results >>*******
+		
+		dollar.setForeground(Color.orange);
+		dollar_result.setForeground(Color.green);
+		
+		
+		pound.setForeground(Color.orange);
+		pound_result.setForeground(Color.green);
+		
+		
+		rupee.setForeground(Color.orange);
+		rupee_result.setForeground(Color.green);
+		
+		
+		euro.setForeground(Color.orange);
+		euro_result.setForeground(Color.green);
+		
+		
+		dirham.setForeground(Color.orange);
+		dirham_result.setForeground(Color.green);
+		
+		
+		
+		
+		
+		
+		
+		
+		// << adding these add-ons to the subpanel
+		
+		
+		converted_result_panel.add(dollar);
+		converted_result_panel.add(dollar_result);
+		
+		
+		converted_result_panel.add(pound);
+		converted_result_panel.add(pound_result);
+		
+		
+		converted_result_panel.add(rupee);
+		converted_result_panel.add(rupee_result);
+		
+		
+		converted_result_panel.add(euro);
+		converted_result_panel.add(euro_result);
+		
+		converted_result_panel.add(dirham);
+		converted_result_panel.add(dirham_result);
+		
+		
+		
+		
+		
+		//  << Add this to the Main Content Panel and to the MainFrame >>
+		
+		frame.getContentPane().add(converted_result_panel);
+		
+		
+		
+		
+		// << Providing Button Action Listeners >>
+		
+		
+		
+		actionsListeners(dollar_button,pound_button,rupee_button,euro_button,dirham_button,convert_button,amount_field,frame,dollar_result,pound_result,rupee_result,euro_result,dirham_result);
+		
+		
+	}
+	
+	
+	/* << Below method takes four JRadioButton as a parameters Listens to their actions and
+	 *    if one of them is selected,then the other will be disabled
+	 */
+	
+	
+	
+	// << Defining actionsListeners() >>
+	
+	private static void actionsListeners(JRadioButton dollar_button,JRadioButton pound_button,JRadioButton rupee_button,JRadioButton euro_button,JRadioButton dirham_button,JButton convert_button,JTextField amount_field,JFrame frame,JLabel dollar_result,JLabel pound_result,JLabel rupee_result,JLabel euro_result,JLabel dirham_result)
+	{
+		convert_button.addActionListener(new ActionListener() {
+			@Override 
+			
+			public void actionPerformed(ActionEvent ae)
+			{
+				String getValue=amount_field.getText();
+				
+				try {
+					
+					
+					// if no selections was chosen,amount is null and suppose if the 'convert button is pressed....>>>
+					if(getValue.equals("") || getValue.contains(" "))
+					{
+						JOptionPane.showMessageDialog(frame,"Amount is required!!","ALERT",JOptionPane.WARNING_MESSAGE);
+						
+					}// << Suppose if user entered amount is negative then it should Highlight the Alert Message >>
+					
+					else if(Double.parseDouble(getValue) < 0) 
+					{
+						JOptionPane.showMessageDialog(frame, "AMOUNT CANNOT BE NEGATIVE!!!","ALERT",JOptionPane.ERROR_MESSAGE);
+					}
+					else if(selectedCurrency.equals("None"))
+					{
+						JOptionPane.showMessageDialog(frame, "Choose the Conversion Type!!!!","Alert!",JOptionPane.INFORMATION_MESSAGE);
+						
+					}else {
+						CurrencyConverter currencyConverter=new CurrencyConverter(Double.parseDouble(getValue));
+						CurrencyConverter.currencyConversion(selectedCurrency);
+						
+						// << Call getConverted_currencies() method here ... >>
+						
+						Hashtable<String,String> cc=CurrencyConverter.getConverted_currencies();
+						
+						dollar_result.setText((cc.get("Dollar")==null) ?  "---" : cc.get("Dollar"));
+						
+						pound_result.setText((cc.get("Pound")==null) ? "---" : cc.get("Pound"));
+						
+						rupee_result.setText((cc.get("Rupee")==null) ? "---" : cc.get("Rupee"));
+						
+						euro_result.setText((cc.get("Euro")==null) ? "---" : cc.get("Euro"));
+						
+						dirham_result.setText((cc.get("Dirham")==null) ? "---" : cc.get("Dirham"));
+					}
+				}catch(NumberFormatException e)
+				{
+					JOptionPane.showMessageDialog(frame,"Please....!!!Enter a Valid Amount","Warning!!",JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+		
+		
+		// << Define the ActionListener to the respective 5 RadioButtons ie., for Dollar,Pound,Rupee,Euro and Dirham Currencies
+		
+		
+		
+		// 		01  	<< FOR RADIOBUTTON 'DOLLAR'   >>
+		dollar_button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				Object source=e.getSource();		//Pending exp
+				
+				if(((JRadioButton)source).isSelected()) 
+				{
+//					pound_button.setEnabled(false);
+					rupee_button.setEnabled(false);
+					pound_button.setEnabled(false);
+					euro_button.setEnabled(false);
+					dirham_button.setEnabled(false);
+					selectedCurrency="DOLLAR";
+				}else {
+					pound_button.setEnabled(true);
+					rupee_button.setEnabled(true);
+					pound_button.setEnabled(true);
+					euro_button.setEnabled(true);
+					selectedCurrency="None";
+					
+				}
+			}
+		});
+		
+		
+		
+	
+		// 		02		<< FOR RADIOBUTTON 'POUND'  >>
+		
+		
+		pound_button.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				Object source=e.getSource();
+				
+				if(((JRadioButton)source).isSelected()) 
+				{
+					dollar_button.setEnabled(false);
+					rupee_button.setEnabled(false);
+					euro_button.setEnabled(false);
+					dirham_button.setEnabled(false);
+					
+					selectedCurrency="POUND";
+				}else {
+					
+					dollar_button.setEnabled(true);
+					rupee_button.setEnabled(true);
+					euro_button.setEnabled(true);
+					dirham_button.setEnabled(true);
+					selectedCurrency="None";
+				}
+			}
+		});
+		
+		//		03  	<< FOR RADIOBUTTON 'RUPEE'  >>
+		
+		rupee_button.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				Object source=e.getSource();
+				
+				if(((JRadioButton)source).isSelected())
+				{
+					dollar_button.setEnabled(false);
+					pound_button.setEnabled(false);
+					euro_button.setEnabled(false);
+					dirham_button.setEnabled(false);
+					
+					selectedCurrency="RUPEE";
+				}else {
+					
+					dollar_button.setEnabled(true);
+					pound_button.setEnabled(true);
+					euro_button.setEnabled(true);
+					dirham_button.setEnabled(true);
+					selectedCurrency="None";
+				}
+			}
+		});
+		
+			//		04	<< FOR RADIOBUTTON 'EURO'  >>
+		
+		
+		euro_button.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				Object source=e.getSource();
+				
+				if(((JRadioButton)source).isSelected())
+				{
+					dollar_button.setEnabled(false);
+					pound_button.setEnabled(false);
+					rupee_button.setEnabled(false);
+					dirham_button.setEnabled(false);
+					selectedCurrency="EURO";
+				}else {
+					
+					dollar_button.setEnabled(true);
+					pound_button.setEnabled(true);
+					rupee_button.setEnabled(true);
+					dirham_button.setEnabled(true);
+					selectedCurrency="None";
+				}
+			}
+		});
+		
+			//		05	<< FOR RADIOBUTTON 'DIRHAM'  >>
+		
+		
+		dirham_button.addActionListener(new ActionListener() 
+		{
+			@Override 
+			public void actionPerformed(ActionEvent e)
+			{
+				Object source=e.getSource();
+				
+				if(((JRadioButton)source).isSelected())
+				{
+					dollar_button.setEnabled(false);
+					pound_button.setEnabled(false);
+					rupee_button.setEnabled(false);
+					euro_button.setEnabled(false);
+					selectedCurrency="DIRHAM";
+				}else {
+					
+					dollar_button.setEnabled(true);
+					pound_button.setEnabled(true);
+					rupee_button.setEnabled(true);
+					euro_button.setEnabled(true);
+					selectedCurrency="None";
+				}
+			}
+		});
+	}
+	
+	
+}
+
+
+
+
+
+
+
+

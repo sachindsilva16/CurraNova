@@ -1,0 +1,193 @@
+import java.text.DecimalFormat;
+import java.util.Hashtable;
+
+
+/* <<<  Here in this module,It converts the Above chosen currency into other 
+ *  corresponding currencies...  >>>
+ */
+
+public class CurrencyConverter {
+	
+	
+	private static Hashtable<String,String> converted_currencies;
+	private static DecimalFormat formatter;
+	
+	private enum Currency {
+		DOLLAR,POUND,EURO,RUPEE,DIRHAM
+	}
+	
+	private static double amount;		//Store an Entered amount
+	
+	
+	
+	
+	//   <<  Initializing Hashtables,formatter and entered amount  >>
+	
+	
+	public CurrencyConverter(double amount)
+	{
+		this.amount=amount;
+		this.converted_currencies=new Hashtable<String,String>();
+		formatter=new DecimalFormat("##.##");
+	}
+	
+	
+	
+	
+	
+	/* <<  Defining the Currency Conversion of one country to other in 
+			'CurrencyConversion() method' */
+	
+	public static void currencyConversion(String baseCurrencyName)
+	{
+		switch(Currency.valueOf(baseCurrencyName)) 
+		{
+			case DOLLAR : dollarConversion();
+							break;
+			case POUND  : poundConversion();
+							break;
+			case EURO   : euroConversion();
+							break;
+			case RUPEE  : rupeeConversion();
+							break;
+			case DIRHAM : dirhamConversion();
+							break;
+		}
+		
+	}
+	
+	/* << Converting given basecurrency into other type of specified currencies
+	 * 		followed by adding them into the 'HashTable' with type 
+	 * 		of String,String values  >>
+	 */
+	
+	
+	//   << Defining rupeeConversion()  >>
+	
+	
+	private static void rupeeConversion()
+	{
+		double dollar=amount/77.95;
+		double pound=amount/95.30;
+		double euro=amount/81.82;
+//		double rupee=amount/1.00;
+		double dirham=amount/21.22;
+		
+		
+		// << Converting the currencies ....>>
+		
+		
+		getConverted_currencies().put("Dollar",formatter.format(dollar));
+		getConverted_currencies().put("Pound",formatter.format(pound));
+		getConverted_currencies().put("Euro",formatter.format(euro));
+		getConverted_currencies().put("Dirham",formatter.format(dirham));
+		
+	}
+	
+	
+	
+	//      << Defining poundConversion()  >>
+	
+	
+	public static void poundConversion()
+	{
+		double dollar=amount/0.82;
+		double rupee=amount/0.010;
+		double euro=amount/0.86;
+		double dirham=amount/0.22;
+//		double pound=amount/1.00;
+		
+		
+		
+		//  << Converting the currencies... >>
+		
+		
+		
+		getConverted_currencies().put("Dollar",formatter.format(dollar));
+		getConverted_currencies().put("Rupee",formatter.format(rupee));
+		getConverted_currencies().put("Euro",formatter.format(euro));
+		getConverted_currencies().put("Dirham",formatter.format(dirham));
+		
+	}
+	
+	
+	
+		//  << Defining euroConversion()  >>
+	
+	
+	
+	private static void euroConversion() 
+	{
+		double dollar=amount/0.95;
+		double rupee=amount/0.012;
+//		double euro=amount/1.00;
+		double dirham=amount/0.26;
+		double pound=amount/1.16;
+		
+	//  << Converting the currencies... >>
+		
+		
+		
+		getConverted_currencies().put("Dollar",formatter.format(dollar));
+		getConverted_currencies().put("Rupee",formatter.format(rupee));
+		getConverted_currencies().put("Pound",formatter.format(pound));
+		getConverted_currencies().put("Dirham",formatter.format(dirham));
+		
+	}
+	
+	
+	
+			//  << Defining dollarConversion()  >>
+	
+	private static void dollarConversion()
+	{
+//		double dollar=amount/1.00;
+		double rupee=amount/0.013;
+		double euro=amount/1.05;
+		double dirham=amount/0.27;
+		double pound=amount/1.22;
+		
+		
+		
+	//  << Converting the currencies... >>
+		
+		
+		getConverted_currencies().put("Rupee",formatter.format(rupee));
+		getConverted_currencies().put("Pound",formatter.format(pound));
+		getConverted_currencies().put("Euro",formatter.format(euro));
+		getConverted_currencies().put("Dirham",formatter.format(dirham));
+		
+		
+	}
+	
+	
+		//  << Defining dirhamConversion()  >>
+	
+	
+	private static void dirhamConversion()
+	{
+		double dollar=amount/3.67;
+		double rupee=amount/0.047;
+		double euro=amount/3.86;
+//		double dirham=amount/1.00;
+		double pound=amount/4.49;
+		
+		
+	//  << Converting the currencies... >>
+		
+		
+		getConverted_currencies().put("Dollar",formatter.format(dollar));
+		getConverted_currencies().put("Rupee",formatter.format(rupee));
+		getConverted_currencies().put("Euro",formatter.format(euro));
+		getConverted_currencies().put("Pound",formatter.format(pound));
+		
+	}
+	
+	
+	
+	public static Hashtable<String,String> getConverted_currencies() 
+	{
+		return converted_currencies;
+	}
+	
+}
