@@ -1,7 +1,8 @@
 # CurrencyConverter
 Hello There!
-Sachin Dsilva Here...
+I am Sachin Ronson Dsilva currently pursuing 3rd year Information Science and Enginnering at NMAM Insitute of Technology,Nitte
 
+Preface of this project:
 
 This is Currency Converter Project been Designed using Java Programming..
 •	This Currency Convertor is a JAVA GUI based application developed using Swing coded in Java language.
