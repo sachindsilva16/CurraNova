@@ -22,4 +22,7 @@ This is Currency Converter Project been Designed using Java Programming..
 •	This simple feature allows users to enter amount to be converted (Say from “Dollars”) and display the converted amount (Say to “Rupee”).
 
 
----------------------------------------------**********  Thanks   **************---------------------------------------------------------------
+
+
+
+**********  Thanks   **************
