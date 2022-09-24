@@ -1,6 +1,6 @@
 # CurrencyConverter
 Hello There!
-I am Sachin Ronson Dsilva pursuing 2rd year BE under Information Science and Enginnering at NMAM Insitute of Technology,Nitte
+I am Sachin Ronson Dsilva pursuing 2nd year BE under Information Science and Enginnering at NMAM Insitute of Technology,Nitte
 
 Preface of this project:
 
