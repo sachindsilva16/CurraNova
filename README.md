@@ -1,29 +1,16 @@
-# CurrencyConverter
+# `CURRANOVA - A CURRENCY CONVERTER SYSTEM`
 Hello There!
-I am Sachin Ronson Dsilva pursuing 2nd year BE under Information Science and Enginnering at NMAM Insitute of Technology,Nitte
+I am **Sachin Ronson Dsilva** pursuing 2nd year BE under Information Science and Enginnering at NMAM Insitute of Technology,Nitte
 
-Preface of this project:
+`Key features of the project:`
 
-This is Currency Converter Project been Designed using Java Programming..
-•	This Currency Convertor is a JAVA GUI based application developed using Swing coded in Java language.
+Graphical User Interface (GUI): The application utilizes the Swing and AWT packages to create an interactive GUI for user interaction.
 
-•	Different countries have different currency systems and there is a daily variation in these currencies relative to one another.
+- [x] **Currency Exchange Rates:** The system regularly updates the currency exchange rates for five countries: **`USA (Dollars), UK (Pound Sterling), IND (Indian Rupee), France (Euro), and UAE (Dirham)`**.
 
-•	Those who transfer money from one country to another must be updated with latest currency exchange rates in the market.
+- [x] **Conversion Options:** The user is presented with five options corresponding to different currency systems. These options allow the user to select the desired conversion, such as converting from Dollars to Rupees.
 
-•	This mini project is simply a calculator-based GUI app developed using Swing and awt package features . In this application ,there is a regular updation on currency of 5 countries i.e.,
-                     USA Dollars
-                     UK (United Kingdom) Pound Sterling
-                     IND (India) Indian Rupee
-                     France  Euro
-                     (UAE) United Arab Emirates (Dubai) Dirham
+- [x] **Amount Conversion:** Users can input the amount they wish to convert from one currency to another. The application processes the input and calculates the converted amount based on the selected currency conversion rate.
 
-•	In this Currency convertor app, the users are provided with 5 options on different currency systems to select the type of conversion Example: from “Dollar” to “Rupee”.
+Overall, the **"CURRANOVA - A CURRENCY CONVERTER SYSTEM"** project is a **Java-based GUI application** developed using the Swing library. It incorporates currency exchange rate updates, allows users to select conversion options, enter amounts to be converted, and displays the converted values. The project involves Java programming, GUI design using Swing, currency conversion logic, data storage, error handling, documentation, and testing to create a robust and user-friendly currency converter system.
 
-•	This simple feature allows users to enter amount to be converted (Say from “Dollars”) and display the converted amount (Say to “Rupee”).
-
-
-
-
-
-**********  Thanks   **************
